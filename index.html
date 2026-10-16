@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmos Space Dashboard</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <header class="app-header">
+    <button id="sidebar-toggle" class="sidebar-toggle-btn">☰</button>
+    <h1 class="logo">COSMOS</h1>
+    <span id="launches-count-mobile" class="mobile-count">—</span>
+  </header>
+
+  <div class="app-layout">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon" aria-hidden="true">🚀</span>
+        <div>
+          <h2>COSMOS</h2>
+          <p>Space Dashboard</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#today-in-space" class="nav-link" data-section="today-in-space">
+          <span>🌌</span> Today in Space
+        </a>
+        <a href="#launches" class="nav-link" data-section="launches">
+          <span>🚀</span> Launches
+        </a>
+        <a href="#planets" class="nav-link" data-section="planets">
+          <span>🪐</span> Planets
+        </a>
+      </nav>
+      <div class="sidebar-profile">
+        <span class="profile-avatar" aria-hidden="true">👤</span>
+        <div>
+          <strong>Space Explorer</strong>
+          <p>explorer@cosmos.space</p>
+        </div>
+        <span class="profile-dots" aria-hidden="true">⋮</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="dashboard-header">
+        <div class="dashboard-heading">
+          <h2>Space Explorer Dashboard</h2>
+          <p>Real-time space data from NASA &amp; SpaceDevs</p>
+        </div>
+
+        <div class="dashboard-indicators">
+          <span class="live-indicator">
+            <span class="live-dot"></span>
+            Live Data
+          </span>
+          <span>🌐 8 Planets</span>
+          <span>🚀 <span id="header-launches-count">—</span> Launches</span>
+        </div>
+      </header>
+      <section id="today-in-space" class="app-section hidden">
+        <div class="section-header">
+          <h2>Today in Space</h2>
+          <div class="controls">
+            <div class="date-input-wrapper">
+              <span>Select Date</span>
+              <input type="date" id="apod-date-input" aria-label="Astronomy picture date" class="custom-date-input">
+            </div>
+            <button id="load-date-btn" class="action-button">Load Date</button>
+            <button id="today-apod-btn" class="action-button secondary">Today</button>
+          </div>
+        </div>
+
+        <div class="apod-container">
+          <div id="apod-image-container" class="media-box"></div>
+          <div class="apod-details">
+            <span id="apod-date" class="badge"></span>
+            <h3 id="apod-title"></h3>
+            <p id="apod-explanation" class="desc"></p>
+            <p id="apod-copyright" class="copyright"></p>
+            <div class="info-grid">
+              <div>
+                <small>Date Detail</small>
+                <p id="apod-date-detail">—</p>
+              </div>
+              <div>
+                <small>Date Info</small>
+                <p id="apod-date-info">—</p>
+              </div>
+              <div>
+                <small>Media Type</small>
+                <p id="apod-media-type">—</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="launches" class="app-section hidden">
+        <div class="section-header">
+          <h2>Upcoming Launches</h2>
+          <span id="launches-count" class="badge">Launches</span>
+        </div>
+        <div id="featured-launch" class="featured-card"></div>
+        <div id="launches-grid" class="cards-grid"></div>
+      </section>
+
+      <section id="planets" class="app-section hidden">
+        <div class="section-header">
+          <h2>Solar System Planets</h2>
+        </div>
+        <div id="planets-grid" class="planets-selector-grid"></div>
+
+        <div class="planet-detail-container">
+          <div class="planet-main-info">
+            <div class="planet-header">
+              <h3 id="planet-detail-name">Earth</h3>
+              <button class="fav-btn" data-favorite="planet:earth">♡</button>
+            </div>
+            <img id="planet-detail-image" src="./assets/images/earth.png" alt="Earth" class="planet-img">
+            <p id="planet-detail-description" class="desc"></p>
+            <ul id="planet-facts" class="facts-list"></ul>
+            <button class="action-button">Learn More ↗️</button>
+          </div>
+
+          <div class="planet-stats-grid">
+            <div class="stat-card"><small>Distance from Sun</small>
+              <p id="planet-distance">N/A</p>
+            </div>
+            <div class="stat-card"><small>Mean Radius</small>
+              <p id="planet-radius">N/A</p>
+            </div>
+            <div class="stat-card"><small>Mass</small>
+              <p id="planet-mass">N/A</p>
+            </div>
+            <div class="stat-card"><small>Density</small>
+              <p id="planet-density">N/A</p>
+            </div>
+            <div class="stat-card"><small>Orbital Period</small>
+              <p id="planet-orbital-period">N/A</p>
+            </div>
+            <div class="stat-card"><small>Rotation Period</small>
+              <p id="planet-rotation">N/A</p>
+            </div>
+            <div class="stat-card"><small>Moons</small>
+              <p id="planet-moons">N/A</p>
+            </div>
+            <div class="stat-card"><small>Gravity</small>
+              <p id="planet-gravity">N/A</p>
+            </div>
+            <div class="stat-card"><small>Discoverer</small>
+              <p id="planet-discoverer">N/A</p>
+            </div>
+            <div class="stat-card"><small>Discovery Date</small>
+              <p id="planet-discovery-date">N/A</p>
+            </div>
+            <div class="stat-card"><small>Body Type</small>
+              <p id="planet-body-type">N/A</p>
+            </div>
+            <div class="stat-card"><small>Volume</small>
+              <p id="planet-volume">N/A</p>
+            </div>
+            <div class="stat-card"><small>Perihelion</small>
+              <p id="planet-perihelion">N/A</p>
+            </div>
+            <div class="stat-card"><small>Aphelion</small>
+              <p id="planet-aphelion">N/A</p>
+            </div>
+            <div class="stat-card"><small>Eccentricity</small>
+              <p id="planet-eccentricity">N/A</p>
+            </div>
+            <div class="stat-card"><small>Inclination</small>
+              <p id="planet-inclination">N/A</p>
+            </div>
+            <div class="stat-card"><small>Axial Tilt</small>
+              <p id="planet-axial-tilt">N/A</p>
+            </div>
+            <div class="stat-card"><small>Avg Temp</small>
+              <p id="planet-temp">N/A</p>
+            </div>
+            <div class="stat-card"><small>Escape Velocity</small>
+              <p id="planet-escape">N/A</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-table-wrapper">
+          <h3>Planetary Comparison</h3>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Planet</th>
+                  <th>Distance</th>
+                  <th>Diameter</th>
+                  <th>Mass (vs Earth)</th>
+                  <th>Orbit</th>
+                  <th>Moons</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody id="planet-comparison-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <dialog id="detail-modal" aria-labelledby="modal-title">
+    <button id="close-modal" aria-label="Close details">&times;</button>
+    <div id="modal-content"></div>
+  </dialog>
+
+  <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
